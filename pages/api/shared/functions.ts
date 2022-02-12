@@ -1,4 +1,4 @@
-import { ReducedCryptoListData } from '../cryptoget/types/Cryptocompare'
+import { ReducedCryptoListData } from '../types/Cryptocompare'
 
 export const getRandomInt = () => {
   return Math.floor(Math.random() * 1_000_000_000_000)
