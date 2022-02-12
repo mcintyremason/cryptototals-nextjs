@@ -32,7 +32,7 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
 
     // create object of reduced values for cryptos
     for (const entry of Object.entries(cryptoSymbols)) {
-      const [key, value] = entry
+      const [_, value] = entry
       const reducedCrypto = reduceFields(value as CryptoListData)
 
       if (reducedCrypto?.totalCoinsMined > 10000000) {
