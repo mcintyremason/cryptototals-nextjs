@@ -1,4 +1,4 @@
-# [masonmcintyre.com](http://masonmcintyre.com)
+# [masonmcintyre.com](https://cryptoget.dev)
 
 My personal website built using [React](reactjs.org/), [Material-UI Component Library](https://material-ui.com/), [traditional CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), and [Next.js](https://nextjs.org/).
 
