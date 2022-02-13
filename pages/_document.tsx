@@ -25,10 +25,6 @@ class MyDocument extends Document {
           />
           <link rel="icon" type="image/png" href="/img/icons/favicon-1/favicon.ico" />
           <link rel="stylesheet" href="/css/app.css" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2W9CGXN42"></script>
           <script
             dangerouslySetInnerHTML={{
@@ -38,6 +34,10 @@ class MyDocument extends Document {
               gtag('config', 'G-W2W9CGXN42');`,
             }}
           />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )
