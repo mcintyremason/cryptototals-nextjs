@@ -138,6 +138,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
         )}
         <Grid container className={styles['text-field-label-container']}>
           <NativeSelect
+            id="crypto-sybol"
             value={cryptoEntries[index].symbol}
             onChange={(e) => handleCryptoOnChange(e, index)}
           >
