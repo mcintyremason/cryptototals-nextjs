@@ -16,7 +16,6 @@ class MyDocument extends Document {
         content="yvJk6V5mexkpQDw1vr4H0bE0uIMXrgpJSC9kPx0MDtw"
       /> */}
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta http-equiv="Content-Security-Policy" content="script-src 'none'" />
           <meta
             name="description"
             content={`Cryptoget.dev is a website that empowers it's users to see the total value of 
