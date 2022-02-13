@@ -1,17 +1,22 @@
-export type Crypto = {
+export type CryptoBalance = {
   symbol?: string
   holdings?: number
   price?: number
   total?: number
 }
 
-export type CryptoWithToken = {
-  [key: string]: Crypto
+export type CryptoBalances = {
+  [key: string]: CryptoBalance
 }
 
 export type BalanceTotalsResponse = {
-  currencies: CryptoWithToken
+  currencies: CryptoBalances
   total: number
+}
+
+export type GetBalanceQueryParams = {
+  // ex. ETH: 1
+  [key: string]: number
 }
 
 export type CryptoListData = {
@@ -50,7 +55,7 @@ export type CryptoListData = {
   TotalCoinsMined: number
   CirculatingSupply: number
   BlockNumber: number
-  NetHashesPerSecond: null
+  NetHashesPerSecond?: number
   BlockReward: number
   BlockTime: number
   AssetLaunchDate: string
@@ -65,12 +70,14 @@ export type CryptoListData = {
   Difficulty: number
 }
 
-export type CryptoDataWithKey = {
-  [key: string]: CryptoListData
-}
-
 export type ReducedCryptoListData = {
   fullName: string
   symbol: string
   totalCoinsMined: number
+}
+
+export type Cryptos = Array<ReducedCryptoListData>
+
+export type BalancesRequest = {
+  [index: string]: string
 }

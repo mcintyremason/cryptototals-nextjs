@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { CryptoListData, ReducedCryptoListData } from '../../models/Cryptoget'
 import { camelize, sortObjectByFullName } from './shared/functions'
-import { CryptoListData, ReducedCryptoListData } from './types/Cryptocompare'
 const cc = require('cryptocompare')
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {

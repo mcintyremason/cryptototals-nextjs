@@ -1,0 +1,17 @@
+.balances-container .balances-table-container {
+  padding: 20px 0;
+}
+
+.balances-container .balance-table-toolbar {
+  padding: 0 16px 10px;
+}
+
+.balances-container .progress-container {
+  padding: 50px 0 0;
+}
+
+@media only screen and (min-width: 960px) {
+  .balances .balances-table-container {
+    padding: 50px 0;
+  }
+}

@@ -1,11 +1,11 @@
-import { ReducedCryptoListData } from '../types/Cryptocompare'
+import { ReducedCryptoListData } from '../../../models/Cryptoget'
 
 export const getRandomInt = () => {
   return Math.floor(Math.random() * 1_000_000_000_000)
 }
 
 export const camelize = (str: string) => {
-  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match: string, index: number) => {
     if (+match === 0) return '' // or if (/\s+/.test(match)) for white spaces
     return index === 0 ? match.toLowerCase() : match.toUpperCase()
   })

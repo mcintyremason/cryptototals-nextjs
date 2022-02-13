@@ -1,0 +1,47 @@
+.holdings-form-container .card-content {
+  padding: 20px 20px;
+}
+
+.holdings-form-container .card-actions {
+  padding: 20px 20px;
+}
+
+.holdings-form-container .text-field-label-container {
+  padding: 0 0 15px;
+}
+
+.holdings-form-container .text-field-container {
+  padding: 0 0 20px;
+}
+
+.holdings-form-container .card-button {
+  min-width: 250px;
+  padding: 10px 0;
+}
+
+.holdings-form-container .add-icon-container {
+  padding: 0 0 10px;
+}
+
+.holdings-form-container .add-icon {
+  /* offset to account for hover styles */
+  margin: -12px 0 0 -12px;
+}
+.holdings-form-container .remove-icon {
+  /* offset to account for hover styles */
+  margin: -12px 0 0 -12px;
+}
+
+@media only screen and (min-width: 960px) {
+  .holdings-form--container.card-content {
+    padding: 40px 60px;
+  }
+
+  .holdings-form-container .card-actions {
+    padding: 40px 60px;
+  }
+
+  .holdings-form-container .text-field {
+    min-width: 250px;
+  }
+}
