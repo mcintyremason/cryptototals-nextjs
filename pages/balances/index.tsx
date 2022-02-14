@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core'
 import { format } from 'currency-formatter'
 import { useCallback, useEffect, useState } from 'react'
+import Footer from '../../components/Footer'
 import HeaderBar from '../../components/HeaderBar'
 import { useCryptogetApi } from '../../hooks/useCryptogetAPI'
 import { useQuery } from '../../hooks/useQuery'
@@ -110,6 +111,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
           </Grid>
         </Grid>
       )}
+      <Footer />
     </Box>
   )
 }

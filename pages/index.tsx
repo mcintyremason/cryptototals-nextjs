@@ -1,5 +1,6 @@
 import { Box, CircularProgress, Grid } from '@material-ui/core'
 import React, { useCallback, useEffect, useState } from 'react'
+import Footer from '../components/Footer'
 import HeaderBar from '../components/HeaderBar'
 import HoldingsForm from '../components/HoldingsForm'
 import { useCryptogetApi } from '../hooks/useCryptogetAPI'
@@ -33,6 +34,7 @@ const IndexPage: React.FC = (_) => {
           </Grid>
         )}
       </Grid>
+      <Footer />
     </Box>
   )
 }
