@@ -19,7 +19,7 @@ class MyDocument extends Document {
             is displayed, as well as a breakdown of the value of the holdings for each 
             individual cryptocurrency.`}
           />
-          <link rel="icon" type="image/png" href="/img/icons/favicon-1/favicon.ico" />
+          <link rel="icon" type="image/png" href="/img/favicon/favicon.ico" />
           <link rel="stylesheet" href="/css/app.css" />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2W9CGXN42"></script>
           <script
