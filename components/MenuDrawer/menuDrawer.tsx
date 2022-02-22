@@ -1,7 +1,7 @@
 import { Grid, SwipeableDrawer } from '@material-ui/core'
-import HamburgerNav from '../../components/HamburgerNav'
 import ListMenu from '../../components/ListMenu'
 import { ListMenuLink } from '../../models/ListMenu'
+import Hamburger from '../Hamburger'
 import styles from './menuDrawer.module.css'
 
 type MenuDrawerProps = {
@@ -25,7 +25,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = (props: MenuDrawerProps) =>
       keepMounted={true}
     >
       <Grid container className={styles['hamburger-nav-container']}>
-        <HamburgerNav active={open} onClick={hamburgerOnClick} />
+        <Hamburger active={open} onClick={hamburgerOnClick} />
       </Grid>
       <Grid
         className={styles['list-menu-container']}

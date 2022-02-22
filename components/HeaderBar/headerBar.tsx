@@ -2,9 +2,9 @@ import { AppBar, Grid, Link, Typography } from '@material-ui/core'
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
 import React, { useState } from 'react'
-import HamburgerNav from '../../components/HamburgerNav'
 import MenuDrawer from '../../components/MenuDrawer'
 import { ListMenuLink } from '../../models/ListMenu'
+import Hamburger from '../Hamburger'
 import styles from './index.module.css'
 
 const DEAULT_MENU_LINKS: Array<ListMenuLink> = [
@@ -61,7 +61,7 @@ export const HeaderBar: React.FC = (_) => {
           </Grid>
         </Grid>
         <Grid item xs={2} sm={8} className={styles['hamburger-nav-container']}>
-          <HamburgerNav active={hambugerActive} onClick={hamburgerOnClick} />
+          <Hamburger active={hambugerActive} onClick={hamburgerOnClick} />
         </Grid>
         <Grid>
           <MenuDrawer

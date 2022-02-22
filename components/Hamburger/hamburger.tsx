@@ -1,14 +1,13 @@
-import styles from './hamburgerNav.module.css'
-import classNames from 'classnames'
-
 import { Grid } from '@material-ui/core'
+import classNames from 'classnames'
+import styles from './hamburger.module.css'
 
 type HamburgerNavProps = {
   active: boolean
   onClick: (event: any) => void
 }
 
-export const HamburgerNav: React.FC<HamburgerNavProps> = (props: HamburgerNavProps) => {
+export const Hamburger: React.FC<HamburgerNavProps> = (props: HamburgerNavProps) => {
   const { active, onClick } = props
 
   return (
