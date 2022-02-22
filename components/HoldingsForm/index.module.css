@@ -14,13 +14,13 @@
   padding: 0 0 20px;
 }
 
-.holdings-form-container .clear-saved-cryptos {
-  padding: 0 0 20px;
-}
-
 .holdings-form-container .card-button {
   min-width: 250px;
   padding: 10px 0;
+}
+
+.holdings-form-container .add-icon-container {
+  padding: 0 0 10px;
 }
 
 .holdings-form-container .add-icon {
@@ -38,7 +38,7 @@
   }
 
   .holdings-form-container .card-actions {
-    padding: 20px 60px;
+    padding: 40px 60px;
   }
 
   .holdings-form-container .text-field {

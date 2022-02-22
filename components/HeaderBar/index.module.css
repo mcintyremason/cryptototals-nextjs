@@ -1,8 +1,3 @@
-.header-bar-container {
-  padding: 10px 10px;
-}
-
-.header-bar-container .menu-title {
-  height: 100%;
-  padding: 0 10px;
+.header-bar {
+  padding: 20px 0;
 }
