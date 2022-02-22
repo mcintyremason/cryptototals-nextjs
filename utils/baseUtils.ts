@@ -1,4 +1,6 @@
-import { ReducedCryptoListData } from '../models/Cryptoget'
+import { NextRouter } from 'next/router'
+import { CryptoEntry, ReducedCryptoListData } from '../models/Cryptoget'
+import { ListMenuLink } from '../models/ListMenu'
 
 export const isEmpty = (value: any): boolean => {
   if (typeof value === 'string') {
@@ -62,3 +64,23 @@ export const sortObjectByFullName = (obj: Array<ReducedCryptoListData>) => {
     return 0
   })
 }
+
+export const subLinksActive = (link: ListMenuLink, router: NextRouter): boolean => {
+  const activeLink = link?.subLinks.find((subLink) => subLink.href === router.pathname)
+
+  return activeLink ? true : false
+}
+
+export const clearLocalStorage = () => localStorage.clear()
+
+export const reduceCryptos = (cryptoEntries: Array<CryptoEntry>) =>
+  cryptoEntries
+    .map((entry) => {
+      return {
+        [entry.symbol]: parseFloat(entry.holdings.toString()),
+      }
+    })
+    .reduce((acc, curr) => ({
+      ...acc,
+      ...curr,
+    }))
