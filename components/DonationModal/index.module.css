@@ -1,0 +1,7 @@
+.donation-modal {
+  padding: 0 0 20px;
+}
+
+.donation-modal-container .crypto-address {
+  overflow-wrap: break-word;
+}

@@ -17,7 +17,6 @@ import {
 import WarningOutlinedIcon from '@material-ui/icons/WarningOutlined'
 import { format } from 'currency-formatter'
 import { useCallback, useEffect, useState } from 'react'
-import Footer from '../../components/Footer'
 import HeaderBar from '../../components/HeaderBar'
 import { useCryptogetApi } from '../../hooks/useCryptogetAPI'
 import { useQuery } from '../../hooks/useQuery'
@@ -158,7 +157,6 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
           )}
         </Grid>
       )}
-      <Footer />
     </Box>
   )
 }

@@ -14,9 +14,14 @@ import {
 } from '@material-ui/core'
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined'
 import LayersClearOutlinedIcon from '@material-ui/icons/LayersClearOutlined'
+import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 import RemoveCircleOutlinedIcon from '@material-ui/icons/RemoveCircleOutlined'
 import { useRouter } from 'next/router'
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
+import {
+  DonationModalOpenContext,
+  SetDonationModalOpenContext,
+} from '../../contexts/DonationModalContext'
 import { CryptoEntry, Cryptos } from '../../models/Cryptoget'
 import { clearLocalStorage, isEmpty } from '../../utils/baseUtils'
 import { modifyHistory } from '../../utils/historyUtils'
@@ -33,6 +38,8 @@ const DEFAULT_CRYPTO_ENTRY = {
 
 export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
   const router = useRouter()
+  const isDonationModalOpen = useContext(DonationModalOpenContext)
+  const setIsDonationModalOpen = useContext(SetDonationModalOpenContext)
   const [cryptoEntries, setCryptoEntries] = useState<Array<CryptoEntry>>([DEFAULT_CRYPTO_ENTRY])
 
   const handleCryptoOnChange = (event: ChangeEvent<HTMLSelectElement>, index: number) => {
@@ -127,6 +134,20 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
     </option>
   ))
 
+  const makeADonationButton = () => (
+    <Button
+      variant="outlined"
+      color="primary"
+      size="small"
+      startIcon={<MonetizationOnOutlinedIcon />}
+      onClick={() => {
+        setIsDonationModalOpen(!isDonationModalOpen)
+      }}
+    >
+      Make a Donation
+    </Button>
+  )
+
   const cryptoEntry = (index: number) => (
     <Grid container justifyContent="space-between" key={`crypto-entry-${index}`}>
       <Grid item xs={6} md={5}>
@@ -189,6 +210,13 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
               Select your cryptocurrencies below and enter your holdings to find the total value of
               all of your cryptocurrencies
             </Typography>
+            <Grid
+              container
+              justifyContent="center"
+              className={styles['make-donation-button-conainer']}
+            >
+              {makeADonationButton()}
+            </Grid>
           </Grid>
         </Grid>
       </CardContent>

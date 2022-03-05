@@ -32,6 +32,10 @@
   margin: -12px 0 0 -12px;
 }
 
+.holdings-form-container .make-donation-button-conainer {
+  padding: 14px 0 0;
+}
+
 @media only screen and (min-width: 960px) {
   .holdings-form--container.card-content {
     padding: 40px 60px;

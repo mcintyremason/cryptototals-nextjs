@@ -1,6 +1,7 @@
 import React, { createContext } from 'react'
-import { ErrorContextProvider } from '../../contexts/ErrorContextProvider'
-import { LoadingContextProvider } from '../../contexts/LoadingContextProvider'
+import { DonationModalContextProvider } from '../../contexts/DonationModalContext'
+import { ErrorContextProvider } from '../../contexts/ErrorContext'
+import { LoadingContextProvider } from '../../contexts/LoadingContext'
 
 type AppContainerProps = {
   children: React.ReactElement[] | React.ReactElement
@@ -16,7 +17,9 @@ const AppContainer: React.FC<AppContainerProps> = (props) => {
   return (
     <AppContext.Provider value={appContextValue}>
       <LoadingContextProvider>
-        <ErrorContextProvider>{props.children}</ErrorContextProvider>
+        <ErrorContextProvider>
+          <DonationModalContextProvider>{props.children}</DonationModalContextProvider>
+        </ErrorContextProvider>
       </LoadingContextProvider>
     </AppContext.Provider>
   )

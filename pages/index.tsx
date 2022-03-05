@@ -1,13 +1,15 @@
 import { Box, CircularProgress, Grid } from '@material-ui/core'
-import React, { useCallback, useEffect, useState } from 'react'
-import Footer from '../components/Footer'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
+import DonationModal from '../components/DonationModal'
 import HeaderBar from '../components/HeaderBar'
 import HoldingsForm from '../components/HoldingsForm'
+import { DonationModalOpenContext } from '../contexts/DonationModalContext'
 import { useCryptogetApi } from '../hooks/useCryptogetAPI'
 import { Cryptos } from '../models/Cryptoget'
 import styles from './index.module.css'
 
 const IndexPage: React.FC = (_) => {
+  const isDonationModalOpen = useContext(DonationModalOpenContext)
   const { getCryptoList, isLoading } = useCryptogetApi()
   const [cryptos, setCryptos] = useState<Cryptos>([])
 
@@ -21,7 +23,7 @@ const IndexPage: React.FC = (_) => {
   }, [])
 
   return (
-    <Box>
+    <Box className="home-container">
       <HeaderBar />
       <Grid container justifyContent="space-between" className={styles['home']}>
         {isLoading ? (
@@ -31,10 +33,10 @@ const IndexPage: React.FC = (_) => {
         ) : (
           <Grid container justifyContent="center">
             <HoldingsForm cryptos={cryptos} />
+            <DonationModal open={isDonationModalOpen} />
           </Grid>
         )}
       </Grid>
-      <Footer />
     </Box>
   )
 }
