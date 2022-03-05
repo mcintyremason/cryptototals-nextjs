@@ -1,34 +1,47 @@
 import { AppBar, Grid, Link, Typography } from '@material-ui/core'
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
-import React, { useState } from 'react'
+import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
+import React, { useContext, useState } from 'react'
 import MenuDrawer from '../../components/MenuDrawer'
+import {
+  DonationModalOpenContext,
+  SetDonationModalOpenContext,
+} from '../../contexts/DonationModalContext'
 import { ListMenuLink } from '../../models/ListMenu'
 import Hamburger from '../Hamburger'
 import styles from './index.module.css'
 
-const DEAULT_MENU_LINKS: Array<ListMenuLink> = [
-  {
-    text: 'Home',
-    href: '/',
-    icon: <HomeOutlinedIcon color="primary" />,
-    isExpanded: false,
-  },
-  {
-    text: 'Balances',
-    href: '/balances',
-    icon: <AccountBalanceWalletOutlinedIcon color="primary" />,
-    isExpanded: false,
-  },
-  // {
-  //   text: 'About',
-  //   href: '/about',
-  //   icon: <InfoOutlinedIcon color="primary" />,
-  //   isExpanded: false,
-  // },
-]
-
 export const HeaderBar: React.FC = (_) => {
+  const isDonationModalOpen = useContext(DonationModalOpenContext)
+  const setIsDonationModalOpen = useContext(SetDonationModalOpenContext)
+  const DEAULT_MENU_LINKS: Array<ListMenuLink> = [
+    {
+      text: 'Home',
+      href: '/',
+      icon: <HomeOutlinedIcon color="primary" />,
+      isExpanded: false,
+    },
+    {
+      text: 'Balances',
+      href: '/balances',
+      icon: <AccountBalanceWalletOutlinedIcon color="primary" />,
+      isExpanded: false,
+    },
+    // {
+    //   text: 'About',
+    //   href: '/about',
+    //   icon: <InfoOutlinedIcon color="primary" />,
+    //   isExpanded: false,
+    // },
+    {
+      text: 'Make a Donation',
+      icon: <MonetizationOnOutlinedIcon color="primary" />,
+      isExpanded: false,
+      onClick: () => setIsDonationModalOpen(!isDonationModalOpen),
+    },
+  ]
+
   const [hambugerActive, setHambugerActive] = useState(false)
   const [menuLinks, setMenuLinks] = useState<Array<ListMenuLink>>([...DEAULT_MENU_LINKS])
 

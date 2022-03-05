@@ -1,8 +1,8 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { useContext } from 'react'
 import { Type } from 'typescript'
-import { ErrorMessageContext, SetErrorMessageContext } from '../contexts/ErrorContextProvider'
-import { LoadingContext, SetLoadingContext } from '../contexts/LoadingContextProvider'
+import { ErrorMessageContext, SetErrorMessageContext } from '../contexts/ErrorContext'
+import { LoadingContext, SetLoadingContext } from '../contexts/LoadingContext'
 import { BalanceTotalsResponse, Cryptos, GetBalanceQueryParams } from '../models/Cryptoget'
 import { getCryptogetApiEndpoint } from '../utils/env'
 
