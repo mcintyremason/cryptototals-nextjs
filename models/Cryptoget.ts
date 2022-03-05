@@ -81,3 +81,8 @@ export type Cryptos = Array<ReducedCryptoListData>
 export type BalancesRequest = {
   [index: string]: string
 }
+
+export type CryptoEntry = {
+  symbol: string
+  holdings: number
+}

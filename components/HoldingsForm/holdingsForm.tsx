@@ -13,21 +13,17 @@ import {
   Typography,
 } from '@material-ui/core'
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined'
+import LayersClearOutlinedIcon from '@material-ui/icons/LayersClearOutlined'
 import RemoveCircleOutlinedIcon from '@material-ui/icons/RemoveCircleOutlined'
 import { useRouter } from 'next/router'
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Cryptos } from '../../models/Cryptoget'
-import { isEmpty } from '../../utils/baseUtils'
+import { CryptoEntry, Cryptos } from '../../models/Cryptoget'
+import { clearLocalStorage, isEmpty } from '../../utils/baseUtils'
 import { modifyHistory } from '../../utils/historyUtils'
 import styles from './index.module.css'
 
 type HoldingsFormProps = {
   cryptos: Cryptos
-}
-
-type CryptoEntry = {
-  symbol: string
-  holdings: number
 }
 
 const DEFAULT_CRYPTO_ENTRY = {
@@ -84,7 +80,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
         ...curr,
       }))
 
-    localStorage.setItem('cryptoEntries', JSON.stringify(cryptoEntries))
+    localStorage.setItem('crypto_entries', JSON.stringify(cryptoEntries))
     modifyHistory(
       router,
       {
@@ -113,8 +109,13 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
     setCryptoEntries(updatedCryptoEntries)
   }
 
+  const handleClearSavedCryptos = () => {
+    clearLocalStorage()
+    setCryptoEntries([DEFAULT_CRYPTO_ENTRY])
+  }
+
   useEffect(() => {
-    const localStorageCryptoEntries = JSON.parse(localStorage.getItem('cryptoEntries'))
+    const localStorageCryptoEntries = JSON.parse(localStorage.getItem('crypto_entries'))
     if (localStorageCryptoEntries && !isEmpty(cryptos)) {
       setCryptoEntries(localStorageCryptoEntries)
     }
@@ -184,48 +185,65 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
             </Typography>
           </Grid>
           <Grid item xs={11}>
-            <Typography variant="h5" align="center">
-              We're a one stop shop to help find the total value of all of your holdings
+            <Typography variant="h6" align="center">
+              Select your cryptocurrencies below and enter your holdings to find the total value of
+              all of your cryptocurrencies
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
       <Divider />
       <CardActions className={styles['card-actions']}>
-        <Grid container justifyContent="center">
-          <FormGroup>
-            {cryptoEntries.map((_, i) => cryptoEntry(i))}
-            <Grid container justifyContent="flex-start" className={styles['add-icon-container']}>
-              <IconButton
-                color="primary"
-                aria-label="add crypto entry"
-                component="span"
-                onClick={handleAddCryptoOnClick}
-                className={styles['add-icon']}
-              >
-                <AddCircleOutlinedIcon />
-              </IconButton>
-              <IconButton
-                color="primary"
-                aria-label="add crypto entry"
-                component="span"
-                onClick={handleRemoveCryptoOnClick}
-                className={styles['remove-icon']}
-              >
-                <RemoveCircleOutlinedIcon />
-              </IconButton>
-            </Grid>
-            <Grid container justifyContent="center" className={styles['submit-container']}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => handleOnSubmit()}
-                className={styles['card-button']}
-              >
-                Sumbit
-              </Button>
-            </Grid>
-          </FormGroup>
+        <Grid container>
+          <Grid container justifyContent="flex-end" className={styles['clear-saved-cryptos']}>
+            <Button
+              variant="text"
+              color="primary"
+              size="small"
+              startIcon={<LayersClearOutlinedIcon />}
+              onClick={handleClearSavedCryptos}
+            >
+              Clear Cryptos
+            </Button>
+          </Grid>
+          <Grid container justifyContent="center">
+            <FormGroup>
+              {cryptoEntries.map((_, i) => cryptoEntry(i))}
+              <Grid container justifyContent="flex-start" className={styles['icon-container']}>
+                <Grid item xs={6}>
+                  <IconButton
+                    color="primary"
+                    aria-label="add crypto entry"
+                    component="span"
+                    onClick={handleAddCryptoOnClick}
+                    className={styles['add-icon']}
+                  >
+                    <AddCircleOutlinedIcon />
+                  </IconButton>
+                  <IconButton
+                    color="primary"
+                    aria-label="remove crypto entry"
+                    component="span"
+                    onClick={handleRemoveCryptoOnClick}
+                    className={styles['remove-icon']}
+                  >
+                    <RemoveCircleOutlinedIcon />
+                  </IconButton>
+                </Grid>
+                <Grid item xs={6}></Grid>
+              </Grid>
+              <Grid container justifyContent="center" className={styles['submit-container']}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => handleOnSubmit()}
+                  className={styles['card-button']}
+                >
+                  Sumbit
+                </Button>
+              </Grid>
+            </FormGroup>
+          </Grid>
         </Grid>
       </CardActions>
     </Card>

@@ -1,4 +1,4 @@
-.balances-container .balances-table-container {
+.balances-container .balances-container {
   padding: 20px 0;
 }
 
@@ -10,8 +10,16 @@
   padding: 50px 0 0;
 }
 
+.balances-container .warning-card-content:last-child {
+  padding: 16px;
+}
+
+.balances-container .warning-icon-container {
+  height: 100%;
+}
+
 @media only screen and (min-width: 960px) {
-  .balances .balances-table-container {
+  .balances .balances-container {
     padding: 50px 0;
   }
 }

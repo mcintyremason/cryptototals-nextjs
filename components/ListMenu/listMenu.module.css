@@ -1,0 +1,80 @@
+.list-menu-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.list-menu-container .list-menu {
+  width: 100%;
+  padding: 0;
+}
+
+.list-menu-container .list-menu-item {
+  padding: 10px;
+}
+
+.list-menu-container .list-menu-link-container {
+  min-height: 32px;
+}
+
+.list-menu-container .list-menu-link {
+  color: var(--primary-color);
+  width: 100%;
+  vertical-align: top;
+  text-decoration: none;
+}
+
+.list-menu-container .list-menu-link:hover {
+  text-decoration: none;
+}
+
+.list-menu-container .list-menu-link:hover * {
+  color: var(--secondary-color);
+  border: none;
+}
+
+.list-menu-container .list-menu-link.active {
+  color: var(--secondary-color);
+  border: none;
+}
+
+.list-menu-container .list-menu-link.focus {
+  color: var(--secondary-color);
+}
+
+.list-menu-container .list-menu-link.active svg {
+  color: var(--secondary-color);
+  border: none;
+}
+
+.list-menu-container .list-menu-sub-link {
+  font-size: 0.9em;
+}
+
+.list-menu-container .list-menu-sub-link:hover {
+  border: none;
+}
+
+.list-menu-container .list-menu-sub-link:focus {
+  border: none;
+}
+
+.list-menu-container .list-menu-link-divider {
+  padding-top: 4px;
+  line-height: 1.1em;
+  font-size: 1em;
+}
+
+@media only screen and (min-width: 1280px) {
+  .list-menu-container .list-menu-item {
+    padding-right: 2px;
+    padding-left: 5px;
+  }
+
+  .list-menu-container .list-menu-link:hover {
+    color: var(--secondary-color);
+    border: none;
+  }
+}
