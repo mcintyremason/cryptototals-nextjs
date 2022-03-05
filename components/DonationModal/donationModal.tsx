@@ -22,7 +22,7 @@ export const DonationModal: React.FC<DonationModalProps> = ({ open }) => {
       <Box className={styles['donation-modal']}>
         <DialogTitle>
           <Typography variant="h6" gutterBottom align="center">
-            Donations whole heartedly welcome! 😌
+            Donations are whole heartedly welcome! 😌
           </Typography>
         </DialogTitle>
         <Grid container justifyContent="center">
