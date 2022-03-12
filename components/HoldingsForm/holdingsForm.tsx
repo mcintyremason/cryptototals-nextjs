@@ -244,7 +244,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
                     aria-label="add crypto entry"
                     component="span"
                     onClick={handleAddCryptoOnClick}
-                    className={styles['add-icon']}
+                    className={styles['icon']}
                   >
                     <AddCircleOutlinedIcon />
                   </IconButton>
@@ -253,7 +253,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
                     aria-label="remove crypto entry"
                     component="span"
                     onClick={handleRemoveCryptoOnClick}
-                    className={styles['remove-icon']}
+                    className={styles['icon']}
                   >
                     <RemoveCircleOutlinedIcon />
                   </IconButton>

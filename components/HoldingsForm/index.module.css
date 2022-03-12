@@ -23,11 +23,7 @@
   padding: 10px 0;
 }
 
-.holdings-form-container .add-icon {
-  /* offset to account for hover styles */
-  margin: -12px 0 0 -12px;
-}
-.holdings-form-container .remove-icon {
+.holdings-form-container .icon {
   /* offset to account for hover styles */
   margin: -12px 0 0 -12px;
 }
@@ -37,7 +33,7 @@
 }
 
 @media only screen and (min-width: 960px) {
-  .holdings-form--container.card-content {
+  .holdings-form-container.card-content {
     padding: 40px 60px;
   }
 
