@@ -1,4 +1,4 @@
-import { Grid, SwipeableDrawer } from '@material-ui/core'
+import { Grid, Link, SwipeableDrawer, Typography } from '@material-ui/core'
 import ListMenu from '../../components/ListMenu'
 import { ListMenuLink } from '../../models/ListMenu'
 import Hamburger from '../Hamburger'
@@ -35,6 +35,16 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = (props: MenuDrawerProps) =>
         xs={12}
       >
         <ListMenu links={links} justifyText={'flex-start'} />
+      </Grid>
+      <Grid container direction="column" className={styles['created-by-container']}>
+        <Grid container justifyContent="center">
+          <Typography>Created by</Typography>
+        </Grid>
+        <Grid container justifyContent="center">
+          <Link href="https://masonmcintyre.com">
+            <Typography>masonmcintyre.com</Typography>
+          </Link>
+        </Grid>
       </Grid>
     </SwipeableDrawer>
   )

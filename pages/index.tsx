@@ -23,11 +23,11 @@ const IndexPage: React.FC = (_) => {
   }, [])
 
   return (
-    <Box className="home-container">
+    <Box>
       <HeaderBar />
       <Grid container justifyContent="space-between" className={styles['home']}>
         {isLoading ? (
-          <Grid container justifyContent="center" className={styles['progress-container']}>
+          <Grid container justifyContent="center">
             <CircularProgress />
           </Grid>
         ) : (
