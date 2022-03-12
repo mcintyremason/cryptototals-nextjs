@@ -36,7 +36,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = (props: MenuDrawerProps) =>
       >
         <ListMenu links={links} justifyText={'flex-start'} />
       </Grid>
-      <Grid container direction="column">
+      <Grid container direction="column" className={styles['created-by-container']}>
         <Grid container justifyContent="center">
           <Typography>Created by</Typography>
         </Grid>
