@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { CryptoListData, ReducedCryptoListData } from '../../models/Cryptoget'
+import { CryptoListData, ReducedCryptoListData } from '../../models/CryptoTotals'
 import { camelize, sortObjectByFullName } from '../../utils/baseUtils'
 const cc = require('cryptocompare')
 

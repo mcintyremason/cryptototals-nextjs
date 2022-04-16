@@ -4,13 +4,13 @@ import DonationModal from '../components/DonationModal'
 import HeaderBar from '../components/HeaderBar'
 import HoldingsForm from '../components/HoldingsForm'
 import { DonationModalOpenContext } from '../contexts/DonationModalContext'
-import { useCryptogetApi } from '../hooks/useCryptogetAPI'
-import { Cryptos } from '../models/Cryptoget'
+import { useCryptoTotalsApi } from '../hooks/useCryptoTotalsAPI'
+import { Cryptos } from '../models/CryptoTotals'
 import styles from './index.module.css'
 
 const IndexPage: React.FC = (_) => {
   const isDonationModalOpen = useContext(DonationModalOpenContext)
-  const { getCryptoList, isLoading } = useCryptogetApi()
+  const { getCryptoList, isLoading } = useCryptoTotalsApi()
   const [cryptos, setCryptos] = useState<Cryptos>([])
 
   const fetchCryptoList = useCallback(async () => {
@@ -23,11 +23,11 @@ const IndexPage: React.FC = (_) => {
   }, [])
 
   return (
-    <Box className="home-container">
+    <Box>
       <HeaderBar />
       <Grid container justifyContent="space-between" className={styles['home']}>
         {isLoading ? (
-          <Grid container justifyContent="center" className={styles['progress-container']}>
+          <Grid container justifyContent="center">
             <CircularProgress />
           </Grid>
         ) : (

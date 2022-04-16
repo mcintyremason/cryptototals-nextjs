@@ -3,8 +3,8 @@ import { useContext } from 'react'
 import { Type } from 'typescript'
 import { ErrorMessageContext, SetErrorMessageContext } from '../contexts/ErrorContext'
 import { LoadingContext, SetLoadingContext } from '../contexts/LoadingContext'
-import { BalanceTotalsResponse, Cryptos, GetBalanceQueryParams } from '../models/Cryptoget'
-import { getCryptogetApiEndpoint } from '../utils/env'
+import { BalanceTotalsResponse, Cryptos, GetBalanceQueryParams } from '../models/CryptoTotals'
+import { getCryptoTotalsApiEndpoint } from '../utils/env'
 
 export interface ResponseStructure<Type> {
   isLoaded: boolean
@@ -15,7 +15,7 @@ export interface ResponseStructure<Type> {
   url?: string
 }
 
-export const useCryptogetApi = () => {
+export const useCryptoTotalsApi = () => {
   const isLoading = useContext(LoadingContext)
   const setIsLoading = useContext(SetLoadingContext)
   const errorMessage = useContext(ErrorMessageContext)
@@ -62,7 +62,7 @@ export const useCryptogetApi = () => {
   }
 
   const getBalanceFor = async (cryptoHoldings: GetBalanceQueryParams) => {
-    const baseUrl = getCryptogetApiEndpoint()
+    const baseUrl = getCryptoTotalsApiEndpoint()
 
     const response = await makeApiCall<BalanceTotalsResponse>({
       url: `${baseUrl}/balance-totals`,
@@ -74,7 +74,7 @@ export const useCryptogetApi = () => {
   }
 
   const getCryptoList = async () => {
-    const baseUrl = getCryptogetApiEndpoint()
+    const baseUrl = getCryptoTotalsApiEndpoint()
 
     const response = await makeApiCall<Cryptos>({
       url: `${baseUrl}/get-crypto-list`,

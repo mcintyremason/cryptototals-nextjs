@@ -1,6 +1,6 @@
-# [cryptoget.dev](https://cryptoget.dev)
+# [CryptoTotals.com](https://cryptototals.com)
 
-My personal website built using [React](reactjs.org/), [Material-UI Component Library](https://material-ui.com/), [traditional CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), and [Next.js](https://nextjs.org/).
+THis website is built using [React](reactjs.org/), [Material-UI Component Library](https://material-ui.com/), [traditional CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), and [Next.js](https://nextjs.org/).
 
 ## Install dependencies
 

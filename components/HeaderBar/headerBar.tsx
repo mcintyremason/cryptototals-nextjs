@@ -61,7 +61,7 @@ export const HeaderBar: React.FC = (_) => {
   return (
     <AppBar position="static" color="transparent" className={styles['header-bar-container']}>
       <Grid container>
-        <Grid item xs={10} sm={4} justifyContent="flex-start">
+        <Grid item xs={10} sm={4}>
           <Grid
             container
             direction="column"
@@ -69,7 +69,7 @@ export const HeaderBar: React.FC = (_) => {
             className={styles['menu-title']}
           >
             <Link href="/">
-              <Typography variant="h4">CryptoGet</Typography>
+              <Typography variant="h4">CryptoTotals</Typography>
             </Link>
           </Grid>
         </Grid>

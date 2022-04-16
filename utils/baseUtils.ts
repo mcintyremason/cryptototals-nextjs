@@ -1,5 +1,5 @@
 import { NextRouter } from 'next/router'
-import { CryptoEntry, ReducedCryptoListData } from '../models/Cryptoget'
+import { CryptoEntry, ReducedCryptoListData } from '../models/CryptoTotals'
 import { ListMenuLink } from '../models/ListMenu'
 
 export const isEmpty = (value: any): boolean => {

@@ -18,9 +18,9 @@ import WarningOutlinedIcon from '@material-ui/icons/WarningOutlined'
 import { format } from 'currency-formatter'
 import { useCallback, useEffect, useState } from 'react'
 import HeaderBar from '../../components/HeaderBar'
-import { useCryptogetApi } from '../../hooks/useCryptogetAPI'
+import { useCryptoTotalsApi } from '../../hooks/useCryptoTotalsAPI'
 import { useQuery } from '../../hooks/useQuery'
-import { BalanceTotalsResponse, GetBalanceQueryParams } from '../../models/Cryptoget'
+import { BalanceTotalsResponse, GetBalanceQueryParams } from '../../models/CryptoTotals'
 import { isEmpty, reduceCryptos } from '../../utils/baseUtils'
 import styles from './index.module.css'
 
@@ -28,7 +28,7 @@ type BalancesProps = {}
 
 const BalancesPage: React.FC<BalancesProps> = (_) => {
   const { parsed } = useQuery()
-  const { getBalanceFor, isLoading } = useCryptogetApi()
+  const { getBalanceFor, isLoading } = useCryptoTotalsApi()
   const [balances, setBalances] = useState<BalanceTotalsResponse>(null)
 
   const fetchGetBalances = useCallback(

@@ -20,7 +20,7 @@ export const DonationModal: React.FC<DonationModalProps> = ({ open }) => {
   return (
     <Dialog open={open} onClose={handleOnClose} className={styles['donation-modal-container']}>
       <Box className={styles['donation-modal']}>
-        <DialogTitle>
+        <DialogTitle disableTypography>
           <Typography variant="h6" gutterBottom align="center">
             Thank you in advance for your donation! 🙂
           </Typography>
