@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { BalanceTotalsResponse } from '../../models/Cryptoget'
+import { BalanceTotalsResponse } from '../../models/CryptoTotals'
 const cc = require('cryptocompare')
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {

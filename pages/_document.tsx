@@ -9,12 +9,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>CryptoGet</title>
+          <title>CryptoTotals</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta
             name="description"
-            content={`Cryptoget.dev is a website that empowers it's users to see the total value of 
+            content={`CryptoTotals.com is a website that empowers it's users to see the total value of 
             their cryptocurrency holdings at a single glance. The total value of a users holdings 
             is displayed, as well as a breakdown of the value of the holdings for each 
             individual cryptocurrency.`}

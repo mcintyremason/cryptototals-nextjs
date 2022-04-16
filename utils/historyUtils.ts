@@ -1,7 +1,7 @@
 import { NextRouter } from 'next/router'
 import { stringify } from 'query-string'
 import { encodeQueryParams, StringParam } from 'use-query-params'
-import { BalancesRequest, GetBalanceQueryParams } from '../models/Cryptoget'
+import { BalancesRequest, GetBalanceQueryParams } from '../models/CryptoTotals'
 
 type HistoryState = {
   previousRequest?: BalancesRequest

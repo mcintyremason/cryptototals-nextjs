@@ -69,7 +69,7 @@ export const HeaderBar: React.FC = (_) => {
             className={styles['menu-title']}
           >
             <Link href="/">
-              <Typography variant="h4">CryptoGet</Typography>
+              <Typography variant="h4">CryptoTotals</Typography>
             </Link>
           </Grid>
         </Grid>
