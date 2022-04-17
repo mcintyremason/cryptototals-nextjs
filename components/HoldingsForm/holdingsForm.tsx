@@ -267,7 +267,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
                   onClick={() => handleOnSubmit()}
                   className={styles['card-button']}
                 >
-                  Sumbit
+                  Calculate
                 </Button>
               </Grid>
             </FormGroup>
