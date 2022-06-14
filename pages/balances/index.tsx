@@ -16,8 +16,10 @@ import {
 } from '@material-ui/core'
 import WarningOutlinedIcon from '@material-ui/icons/WarningOutlined'
 import { format } from 'currency-formatter'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
+import DonationModal from '../../components/DonationModal'
 import HeaderBar from '../../components/HeaderBar'
+import { DonationModalOpenContext } from '../../contexts/DonationModalContext'
 import { useCryptoTotalsApi } from '../../hooks/useCryptoTotalsAPI'
 import { useQuery } from '../../hooks/useQuery'
 import { BalanceTotalsResponse, GetBalanceQueryParams } from '../../models/CryptoTotals'
@@ -29,6 +31,7 @@ type BalancesProps = {}
 const BalancesPage: React.FC<BalancesProps> = (_) => {
   const { parsed } = useQuery()
   const { getBalanceFor, isLoading } = useCryptoTotalsApi()
+  const isDonationModalOpen = useContext(DonationModalOpenContext)
   const [balances, setBalances] = useState<BalanceTotalsResponse>(null)
 
   const fetchGetBalances = useCallback(
@@ -157,6 +160,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
           )}
         </Grid>
       )}
+      <DonationModal open={isDonationModalOpen} />
     </Box>
   )
 }
