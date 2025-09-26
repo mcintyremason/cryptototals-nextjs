@@ -10,7 +10,11 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   try {
     let cryptoSymbols = {}
     const reducedCryptos: any[] = []
+    cc.setApiKey(process.env.CRYPTOCOMPARE_API_KEY)
     const coinListResponse = await cc.coinList()
+
+    console.log('coinListResponse')
+    console.log(coinListResponse)
 
     cryptoSymbols = { ...coinListResponse.Data }
 
@@ -23,6 +27,8 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
           case 'Symbol':
             return { ...acc, ...{ [camelize(key)]: value } }
           case 'TotalCoinsMined':
+            return { ...acc, ...{ [camelize(key)]: value } }
+          case 'IsTrading':
             return { ...acc, ...{ [camelize(key)]: value } }
           default:
             return acc
@@ -45,6 +51,9 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     console.error(e)
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(e)
   }
+
+  console.log('sortedReducedCryptos')
+  console.log(sortedReducedCryptos)
   return res.status(StatusCodes.OK).json(sortedReducedCryptos)
 }
 

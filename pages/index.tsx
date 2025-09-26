@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Grid } from '@material-ui/core'
+import { Box, CircularProgress, Grid } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import DonationModal from '../components/DonationModal'
 import HeaderBar from '../components/HeaderBar'

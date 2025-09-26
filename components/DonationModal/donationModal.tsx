@@ -1,4 +1,4 @@
-import { Box, Dialog, DialogTitle, Grid, Link, Typography } from '@material-ui/core'
+import { Box, Dialog, DialogTitle, Grid, Link, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import {
   DonationModalOpenContext,
@@ -20,20 +20,20 @@ export const DonationModal: React.FC<DonationModalProps> = ({ open }) => {
   return (
     <Dialog open={open} onClose={handleOnClose} className={styles['donation-modal-container']}>
       <Box className={styles['donation-modal']}>
-        <DialogTitle disableTypography>
+        <DialogTitle>
           <Typography variant="h6" gutterBottom align="center">
             Thank you in advance for your donation! 🙂
           </Typography>
         </DialogTitle>
         <Grid container justifyContent="center">
-          <Grid item xs={10}>
+          <Grid container size={{ xs: 10 }}>
             <Link href="bitcoin:bc1qsa7q79acqswea2skye4xc4ecjrw356sl0qu70q">
               <Typography align="center" gutterBottom className={styles['crypto-address']}>
                 BTC: bc1qsa7q79acqswea2skye4xc4ecjrw356sl0qu70q
               </Typography>
             </Link>
           </Grid>
-          <Grid item xs={10} className={styles['crypto-address']}>
+          <Grid container size={{ xs: 10 }} className={styles['crypto-address']}>
             <Link href="ethereum:0xab3327cbf5068c3ff0e06ef79b6af0a21b81ddbe">
               <Typography align="center">
                 ETH: 0xab3327cbf5068c3ff0e06ef79b6af0a21b81ddbe

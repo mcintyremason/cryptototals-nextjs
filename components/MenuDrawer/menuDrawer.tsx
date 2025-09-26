@@ -1,4 +1,4 @@
-import { Grid, Link, SwipeableDrawer, Typography } from '@material-ui/core'
+import { Grid, Link, SwipeableDrawer, Typography } from '@mui/material'
 import ListMenu from '../../components/ListMenu'
 import { ListMenuLink } from '../../models/ListMenu'
 import Hamburger from '../Hamburger'
@@ -31,8 +31,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = (props: MenuDrawerProps) =>
         className={styles['list-menu-container']}
         container
         justifyContent="center"
-        item
-        xs={12}
+        size={{ xs: 12 }}
       >
         <ListMenu links={links} justifyText={'flex-start'} />
       </Grid>

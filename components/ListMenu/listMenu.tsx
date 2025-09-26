@@ -1,13 +1,5 @@
-import {
-  Collapse,
-  Grid,
-  GridJustification,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-} from '@material-ui/core'
-import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import { Collapse, Grid, Link, List, ListItem, ListItemIcon } from '@mui/material'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
@@ -16,7 +8,13 @@ import { subLinksActive } from '../../utils/baseUtils'
 import styles from './listMenu.module.css'
 
 type ListMenuProps = {
-  justifyText?: GridJustification
+  justifyText?:
+    | 'flex-start'
+    | 'center'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly'
   links: Array<ListMenuLink>
 }
 
@@ -53,7 +51,7 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
               className={classNames(styles['list-menu'])}
             >
               <ListItem
-                button
+                component={'button'}
                 disableGutters
                 onClick={() => expandLinkHandler(link)}
                 className={styles['list-menu-item']}
@@ -70,21 +68,20 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                     link.onClick ? link.onClick() : linkClickHandler(e, link)
                   }}
                 >
-                  <Grid item xs={2} container direction="column" justifyContent="center">
+                  <Grid container size={{ xs: 2 }} direction="column" justifyContent="center">
                     {link.icon ? <ListItemIcon>{link.icon}</ListItemIcon> : null}
                   </Grid>
-                  <Grid item xs={10} container justifyContent={justifyText}>
+                  <Grid container size={{ xs: 10 }} justifyContent={justifyText}>
                     <Grid
-                      item
-                      xs={10}
                       container
+                      size={{ xs: 10 }}
                       direction="column"
                       justifyContent="center"
                       className={styles['list-menu-link-text']}
                     >
                       {link.text}
                     </Grid>
-                    <Grid item xs={2} container direction="column" justifyContent="center">
+                    <Grid size={{ xs: 2 }} container direction="column" justifyContent="center">
                       {link.isExpanded ? <ExpandLess /> : <ExpandMore />}
                     </Grid>
                   </Grid>
@@ -93,7 +90,7 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
               <Collapse in={link.isExpanded} timeout="auto" unmountOnExit>
                 {link?.subLinks.map((subLink) => (
                   <List key={`${subLink.text}-sublink`} component="div" disablePadding>
-                    <ListItem button>
+                    <ListItem component={'button'}>
                       <Link
                         className={classNames(
                           styles['list-menu-link'],
@@ -102,10 +99,20 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                         href={subLink.href}
                       >
                         <Grid container justifyContent="space-between">
-                          <Grid item xs={2} container direction="column" justifyContent="center">
+                          <Grid
+                            container
+                            size={{ xs: 2 }}
+                            direction="column"
+                            justifyContent="center"
+                          >
                             {subLink.icon ? <ListItemIcon>{subLink.icon}</ListItemIcon> : null}
                           </Grid>
-                          <Grid item xs={10} container direction="column" justifyContent="center">
+                          <Grid
+                            container
+                            size={{ xs: 10 }}
+                            direction="column"
+                            justifyContent="center"
+                          >
                             <Grid container justifyContent={justifyText}>
                               {subLink.text}
                             </Grid>
@@ -129,7 +136,7 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                 className={classNames(styles['list-menu'])}
               >
                 <ListItem
-                  button
+                  component={'button'}
                   disableGutters
                   onClick={() => (link.onClick ? link.onClick() : expandLinkHandler(link))}
                   className={classNames(styles['list-menu-item'], styles['list-menu-link'])}
@@ -142,10 +149,10 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                     href={link.onClick ? '#' : link.href}
                   >
                     <Grid container justifyContent="space-between">
-                      <Grid item xs={2} container direction="column" justifyContent="center">
+                      <Grid container size={{ xs: 2 }} direction="column" justifyContent="center">
                         {link.icon ? <ListItemIcon>{link.icon}</ListItemIcon> : null}
                       </Grid>
-                      <Grid item xs={10} container direction="column" justifyContent="center">
+                      <Grid container size={{ xs: 10 }} direction="column" justifyContent="center">
                         <Grid container justifyContent={justifyText}>
                           {link.text}
                         </Grid>

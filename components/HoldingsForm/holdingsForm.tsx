@@ -1,3 +1,7 @@
+import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined'
+import LayersClearOutlinedIcon from '@mui/icons-material/LayersClearOutlined'
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
+import RemoveCircleOutlinedIcon from '@mui/icons-material/RemoveCircleOutlined'
 import {
   Button,
   Card,
@@ -11,11 +15,7 @@ import {
   NativeSelect,
   TextField,
   Typography,
-} from '@material-ui/core'
-import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined'
-import LayersClearOutlinedIcon from '@material-ui/icons/LayersClearOutlined'
-import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
-import RemoveCircleOutlinedIcon from '@material-ui/icons/RemoveCircleOutlined'
+} from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
 import {
@@ -150,7 +150,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
 
   const cryptoEntry = (index: number) => (
     <Grid container justifyContent="space-between" key={`crypto-entry-${index}`}>
-      <Grid item xs={6} md={5}>
+      <Grid container size={{ xs: 6, md: 5 }}>
         {index === 0 && (
           <Grid container>
             <FormLabel component="legend" className={styles['text-field-label-container']}>
@@ -170,7 +170,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
           </NativeSelect>
         </Grid>
       </Grid>
-      <Grid item xs={5} md={5}>
+      <Grid container size={{ xs: 5, md: 5 }}>
         <Grid container>
           {index === 0 && (
             <FormLabel component="legend" className={styles['text-field-label-container']}>
@@ -200,12 +200,12 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
     <Card elevation={5} className={styles['holdings-form-container']}>
       <CardContent className={styles['card-content']}>
         <Grid container justifyContent="center">
-          <Grid item xs={12}>
+          <Grid container size={{ xs: 12 }}>
             <Typography variant="h5" align="center" gutterBottom>
               Welcome!
             </Typography>
           </Grid>
-          <Grid item xs={11}>
+          <Grid container size={{ xs: 11 }}>
             <Typography variant="h6" align="center">
               Select your cryptocurrencies below and enter your holdings to find the total value of
               all of your cryptocurrencies
@@ -238,7 +238,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
             <FormGroup>
               {cryptoEntries.map((_, i) => cryptoEntry(i))}
               <Grid container justifyContent="flex-start" className={styles['icon-container']}>
-                <Grid item xs={6}>
+                <Grid container size={{ xs: 6 }}>
                   <IconButton
                     color="primary"
                     aria-label="add crypto entry"
@@ -258,7 +258,7 @@ export const HoldingsForm: React.FC<HoldingsFormProps> = ({ cryptos }) => {
                     <RemoveCircleOutlinedIcon />
                   </IconButton>
                 </Grid>
-                <Grid item xs={6}></Grid>
+                <Grid container size={{ xs: 6 }}></Grid>
               </Grid>
               <Grid container justifyContent="center" className={styles['submit-container']}>
                 <Button

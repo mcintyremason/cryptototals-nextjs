@@ -1,7 +1,7 @@
-import { AppBar, Grid, Link, Typography } from '@material-ui/core'
-import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined'
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
-import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
+import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
+import { AppBar, Grid, Link, Typography } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import MenuDrawer from '../../components/MenuDrawer'
 import {
@@ -61,7 +61,7 @@ export const HeaderBar: React.FC = (_) => {
   return (
     <AppBar position="static" color="transparent" className={styles['header-bar-container']}>
       <Grid container>
-        <Grid item xs={10} sm={4}>
+        <Grid container size={{ xs: 10, sm: 4 }}>
           <Grid
             container
             direction="column"
@@ -73,7 +73,7 @@ export const HeaderBar: React.FC = (_) => {
             </Link>
           </Grid>
         </Grid>
-        <Grid item xs={2} sm={8} className={styles['hamburger-nav-container']}>
+        <Grid container size={{ xs: 2, sm: 8 }} className={styles['hamburger-nav-container']}>
           <Hamburger active={hambugerActive} onClick={hamburgerOnClick} />
         </Grid>
         <Grid>
