@@ -51,7 +51,6 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
               className={classNames(styles['list-menu'])}
             >
               <ListItem
-                component={'button'}
                 disableGutters
                 onClick={() => expandLinkHandler(link)}
                 className={styles['list-menu-item']}
@@ -68,10 +67,10 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                     link.onClick ? link.onClick() : linkClickHandler(e, link)
                   }}
                 >
-                  <Grid container size={{ xs: 2 }} direction="column" justifyContent="center">
+                  <Grid size={{ xs: 2 }} direction="column" justifyContent="center">
                     {link.icon ? <ListItemIcon>{link.icon}</ListItemIcon> : null}
                   </Grid>
-                  <Grid container size={{ xs: 10 }} justifyContent={justifyText}>
+                  <Grid size={{ xs: 10 }} justifyContent={justifyText}>
                     <Grid
                       container
                       size={{ xs: 10 }}
@@ -81,7 +80,7 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                     >
                       {link.text}
                     </Grid>
-                    <Grid size={{ xs: 2 }} container direction="column" justifyContent="center">
+                    <Grid size={{ xs: 2 }} direction="column" justifyContent="center">
                       {link.isExpanded ? <ExpandLess /> : <ExpandMore />}
                     </Grid>
                   </Grid>
@@ -90,7 +89,7 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
               <Collapse in={link.isExpanded} timeout="auto" unmountOnExit>
                 {link?.subLinks.map((subLink) => (
                   <List key={`${subLink.text}-sublink`} component="div" disablePadding>
-                    <ListItem component={'button'}>
+                    <ListItem>
                       <Link
                         className={classNames(
                           styles['list-menu-link'],
@@ -99,20 +98,10 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                         href={subLink.href}
                       >
                         <Grid container justifyContent="space-between">
-                          <Grid
-                            container
-                            size={{ xs: 2 }}
-                            direction="column"
-                            justifyContent="center"
-                          >
+                          <Grid size={{ xs: 2 }} direction="column" justifyContent="center">
                             {subLink.icon ? <ListItemIcon>{subLink.icon}</ListItemIcon> : null}
                           </Grid>
-                          <Grid
-                            container
-                            size={{ xs: 10 }}
-                            direction="column"
-                            justifyContent="center"
-                          >
+                          <Grid size={{ xs: 10 }} direction="column" justifyContent="center">
                             <Grid container justifyContent={justifyText}>
                               {subLink.text}
                             </Grid>
@@ -129,6 +118,7 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
             <Grid
               key={`${link.text}-link`}
               container
+              size={{ xs: 12 }}
               className={styles['list-menu-link-container']}
             >
               <List
@@ -136,7 +126,6 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                 className={classNames(styles['list-menu'])}
               >
                 <ListItem
-                  component={'button'}
                   disableGutters
                   onClick={() => (link.onClick ? link.onClick() : expandLinkHandler(link))}
                   className={classNames(styles['list-menu-item'], styles['list-menu-link'])}
@@ -153,7 +142,11 @@ export const ListMenu: React.FC<ListMenuProps> = (props: ListMenuProps) => {
                         {link.icon ? <ListItemIcon>{link.icon}</ListItemIcon> : null}
                       </Grid>
                       <Grid container size={{ xs: 10 }} direction="column" justifyContent="center">
-                        <Grid container justifyContent={justifyText}>
+                        <Grid
+                          container
+                          justifyContent={justifyText}
+                          className={classNames(styles['list-menu-link-text'])}
+                        >
                           {link.text}
                         </Grid>
                       </Grid>

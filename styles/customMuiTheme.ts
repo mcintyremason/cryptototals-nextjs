@@ -11,6 +11,28 @@ let customTheme = createTheme({
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          // Apply styles to the base Link component
+          textDecoration: 'none', // Example: remove underline by default
+          '&:hover': {
+            textDecoration: 'underline', // Example: add underline on hover
+          },
+        },
+      },
+    },
+  },
+  palette: {
+    primary: {
+      main: '#3f51b5',
+      // light: will be calculated from palette.primary.main,
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      main: '#f50057',
+    },
   },
 })
 

@@ -13,9 +13,6 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     cc.setApiKey(process.env.CRYPTOCOMPARE_API_KEY)
     const coinListResponse = await cc.coinList()
 
-    console.log('coinListResponse')
-    console.log(coinListResponse)
-
     cryptoSymbols = { ...coinListResponse.Data }
 
     // Reduce original response to fields we care about in the FE app
@@ -41,7 +38,7 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
       const [_, value] = entry
       const reducedCrypto = reduceFields(value as CryptoListData)
 
-      if (reducedCrypto?.totalCoinsMined > 10000000) {
+      if (reducedCrypto?.isTrading) {
         reducedCryptos.push(reducedCrypto)
       }
     }
@@ -52,8 +49,6 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(e)
   }
 
-  console.log('sortedReducedCryptos')
-  console.log(sortedReducedCryptos)
   return res.status(StatusCodes.OK).json(sortedReducedCryptos)
 }
 

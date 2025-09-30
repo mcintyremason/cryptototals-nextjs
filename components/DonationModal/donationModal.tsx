@@ -26,14 +26,14 @@ export const DonationModal: React.FC<DonationModalProps> = ({ open }) => {
           </Typography>
         </DialogTitle>
         <Grid container justifyContent="center">
-          <Grid container size={{ xs: 10 }}>
+          <Grid size={{ xs: 10 }}>
             <Link href="bitcoin:bc1qsa7q79acqswea2skye4xc4ecjrw356sl0qu70q">
               <Typography align="center" gutterBottom className={styles['crypto-address']}>
                 BTC: bc1qsa7q79acqswea2skye4xc4ecjrw356sl0qu70q
               </Typography>
             </Link>
           </Grid>
-          <Grid container size={{ xs: 10 }} className={styles['crypto-address']}>
+          <Grid size={{ xs: 10 }} className={styles['crypto-address']}>
             <Link href="ethereum:0xab3327cbf5068c3ff0e06ef79b6af0a21b81ddbe">
               <Typography align="center">
                 ETH: 0xab3327cbf5068c3ff0e06ef79b6af0a21b81ddbe

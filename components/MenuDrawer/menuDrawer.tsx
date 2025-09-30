@@ -24,7 +24,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = (props: MenuDrawerProps) =>
       onOpen={onOpen}
       keepMounted={true}
     >
-      <Grid container className={styles['hamburger-nav-container']}>
+      <Grid container justifyContent={'flex-end'} className={styles['hamburger-nav-container']}>
         <Hamburger active={open} onClick={hamburgerOnClick} />
       </Grid>
       <Grid

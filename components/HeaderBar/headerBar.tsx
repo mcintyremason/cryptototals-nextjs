@@ -60,8 +60,8 @@ export const HeaderBar: React.FC = (_) => {
 
   return (
     <AppBar position="static" color="transparent" className={styles['header-bar-container']}>
-      <Grid container>
-        <Grid container size={{ xs: 10, sm: 4 }}>
+      <Grid container justifyContent={'flex-end'}>
+        <Grid size={{ xs: 10, sm: 4 }}>
           <Grid
             container
             direction="column"
@@ -73,7 +73,7 @@ export const HeaderBar: React.FC = (_) => {
             </Link>
           </Grid>
         </Grid>
-        <Grid container size={{ xs: 2, sm: 8 }} className={styles['hamburger-nav-container']}>
+        <Grid size={{ xs: 2, sm: 8 }} className={styles['hamburger-nav-container']}>
           <Hamburger active={hambugerActive} onClick={hamburgerOnClick} />
         </Grid>
         <Grid>

@@ -27,11 +27,11 @@ const IndexPage: React.FC = (_) => {
       <HeaderBar />
       <Grid container justifyContent="space-between" className={styles['home']}>
         {isLoading ? (
-          <Grid container justifyContent="center">
+          <Grid container size={{ xs: 12 }} justifyContent="center">
             <CircularProgress />
           </Grid>
         ) : (
-          <Grid container justifyContent="center">
+          <Grid container size={{ xs: 12 }} justifyContent="center">
             <HoldingsForm cryptos={cryptos} />
             <DonationModal open={isDonationModalOpen} />
           </Grid>

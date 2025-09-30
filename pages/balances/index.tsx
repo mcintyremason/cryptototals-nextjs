@@ -64,7 +64,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
     <Card elevation={5}>
       <CardContent className={styles['warning-card-content']}>
         <Grid container justifyContent="center">
-          <Grid container size={{ xs: 1 }}>
+          <Grid size={{ xs: 1 }}>
             <Grid
               container
               direction="column"
@@ -74,7 +74,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
               <WarningOutlinedIcon color="action" fontSize="large" />
             </Grid>
           </Grid>
-          <Grid container size={{ xs: 10 }}>
+          <Grid size={{ xs: 10 }}>
             <Typography variant="body2" align="center">
               Return to the home page to enter your cryptocurrency holdings
             </Typography>
@@ -124,7 +124,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
               {balances?.currencies && (
                 <>
                   <Toolbar disableGutters className={styles['balance-table-toolbar']}>
-                    <Grid container justifyContent="space-between">
+                    <Grid container size={{ xs: 12 }} justifyContent="space-between">
                       <Typography variant="h4">Total:</Typography>
                       <Typography variant="h4">
                         {format(balances?.total, { code: 'USD' })}
