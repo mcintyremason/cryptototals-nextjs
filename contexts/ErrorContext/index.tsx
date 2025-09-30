@@ -5,7 +5,7 @@ export const SetErrorMessageContext = createContext(null)
 
 const DEFAULT_ERROR_MESSAGE = 'Error!'
 
-export const ErrorContextProvider: React.FC = ({ children }) => {
+export const ErrorContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState<string>(DEFAULT_ERROR_MESSAGE)
 
   return (
