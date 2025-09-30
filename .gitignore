@@ -4,3 +4,4 @@ node_modules
 .netlify
 out
 .DS_Store
+.env.local

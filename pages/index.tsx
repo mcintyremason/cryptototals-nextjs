@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Grid } from '@material-ui/core'
+import { Box, CircularProgress, Grid } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import DonationModal from '../components/DonationModal'
 import HeaderBar from '../components/HeaderBar'
@@ -27,11 +27,11 @@ const IndexPage: React.FC = (_) => {
       <HeaderBar />
       <Grid container justifyContent="space-between" className={styles['home']}>
         {isLoading ? (
-          <Grid container justifyContent="center">
+          <Grid container size={{ xs: 12 }} justifyContent="center">
             <CircularProgress />
           </Grid>
         ) : (
-          <Grid container justifyContent="center">
+          <Grid container size={{ xs: 12 }} justifyContent="center">
             <HoldingsForm cryptos={cryptos} />
             <DonationModal open={isDonationModalOpen} />
           </Grid>

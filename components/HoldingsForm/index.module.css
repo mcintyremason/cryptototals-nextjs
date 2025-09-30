@@ -14,6 +14,10 @@
   padding: 0 0 20px;
 }
 
+.holdings-form-container .text-field {
+  min-width: 100%;
+}
+
 .holdings-form-container .clear-saved-cryptos {
   padding: 0 0 20px;
 }

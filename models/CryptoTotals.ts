@@ -74,6 +74,7 @@ export type ReducedCryptoListData = {
   fullName: string
   symbol: string
   totalCoinsMined: number
+  isTrading: boolean
 }
 
 export type Cryptos = Array<ReducedCryptoListData>

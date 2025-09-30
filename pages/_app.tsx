@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core'
+import { ThemeProvider } from '@mui/material'
 import { AppContainer } from '../containers/AppContainer'
 import customTheme from '../styles/customMuiTheme'
 

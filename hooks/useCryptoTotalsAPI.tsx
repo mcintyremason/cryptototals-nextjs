@@ -1,14 +1,13 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { useContext } from 'react'
-import { Type } from 'typescript'
 import { ErrorMessageContext, SetErrorMessageContext } from '../contexts/ErrorContext'
 import { LoadingContext, SetLoadingContext } from '../contexts/LoadingContext'
 import { BalanceTotalsResponse, Cryptos, GetBalanceQueryParams } from '../models/CryptoTotals'
 import { getCryptoTotalsApiEndpoint } from '../utils/env'
 
-export interface ResponseStructure<Type> {
+export interface ResponseStructure<T> {
   isLoaded: boolean
-  data?: Type | null
+  data?: T | null
   hasError: boolean
   errorMessage: string
   status: number
@@ -21,11 +20,11 @@ export const useCryptoTotalsApi = () => {
   const errorMessage = useContext(ErrorMessageContext)
   const setErrorMessage = useContext(SetErrorMessageContext)
 
-  const makeApiCall: <Type>(
+  const makeApiCall: <T>(
     request: AxiosRequestConfig,
     timeout?: number,
-  ) => Promise<ResponseStructure<Type>> = async (request: AxiosRequestConfig) => {
-    let response: ResponseStructure<Type> = {
+  ) => Promise<ResponseStructure<T>> = async (request: AxiosRequestConfig) => {
+    let response = {
       hasError: false,
       data: null,
       errorMessage: '',

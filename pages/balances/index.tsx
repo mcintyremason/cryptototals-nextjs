@@ -1,3 +1,4 @@
+import WarningOutlinedIcon from '@mui/icons-material/WarningOutlined'
 import {
   Box,
   Card,
@@ -13,8 +14,7 @@ import {
   TableRow,
   Toolbar,
   Typography,
-} from '@material-ui/core'
-import WarningOutlinedIcon from '@material-ui/icons/WarningOutlined'
+} from '@mui/material'
 import { format } from 'currency-formatter'
 import { useCallback, useContext, useEffect, useState } from 'react'
 import DonationModal from '../../components/DonationModal'
@@ -64,7 +64,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
     <Card elevation={5}>
       <CardContent className={styles['warning-card-content']}>
         <Grid container justifyContent="center">
-          <Grid item xs={1}>
+          <Grid size={{ xs: 1 }}>
             <Grid
               container
               direction="column"
@@ -74,7 +74,7 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
               <WarningOutlinedIcon color="action" fontSize="large" />
             </Grid>
           </Grid>
-          <Grid item xs={10}>
+          <Grid size={{ xs: 10 }}>
             <Typography variant="body2" align="center">
               Return to the home page to enter your cryptocurrency holdings
             </Typography>
@@ -119,16 +119,12 @@ const BalancesPage: React.FC<BalancesProps> = (_) => {
               container
               direction="column"
               justifyContent="center"
-              item
-              xs={10}
-              sm={7}
-              md={6}
-              lg={5}
+              size={{ xs: 10, sm: 7, md: 6, lg: 5 }}
             >
               {balances?.currencies && (
                 <>
                   <Toolbar disableGutters className={styles['balance-table-toolbar']}>
-                    <Grid container justifyContent="space-between">
+                    <Grid container size={{ xs: 12 }} justifyContent="space-between">
                       <Typography variant="h4">Total:</Typography>
                       <Typography variant="h4">
                         {format(balances?.total, { code: 'USD' })}

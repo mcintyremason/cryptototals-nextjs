@@ -7,9 +7,12 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -20,8 +23,13 @@
     "target": "esnext",
     "strictNullChecks": false,
     "allowSyntheticDefaultImports": true,
-    "noStrictGenericChecks": true
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

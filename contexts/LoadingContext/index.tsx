@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 export const LoadingContext = createContext(null)
 export const SetLoadingContext = createContext(null)
 
-export const LoadingContextProvider: React.FC = ({ children }) => {
+export const LoadingContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   return (
