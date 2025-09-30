@@ -3,7 +3,9 @@ import { createContext, useState } from 'react'
 export const DonationModalOpenContext = createContext(false)
 export const SetDonationModalOpenContext = createContext(null)
 
-export const DonationModalContextProvider: React.FC = ({ children }) => {
+export const DonationModalContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
+  children,
+}) => {
   const [isDonationModalOpen, setIsDonationModalOpen] = useState<boolean>(false)
 
   return (
